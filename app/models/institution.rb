@@ -1,4 +1,4 @@
-class Institution < Activerecord::Base
+class Institution < ActiveRecord::Base
   belongs_to :subject_ids, :foreign_key => "id"
 end
 
