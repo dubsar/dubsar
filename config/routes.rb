@@ -1,4 +1,7 @@
 HerokuTest::Application.routes.draw do
+  match 'subjects' => 'subjects#index'
+  resources :people
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

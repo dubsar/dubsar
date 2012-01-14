@@ -16,7 +16,9 @@
 common: &common
   adapter: postgresql
   host: pg-server
-  database: mizone
+  database: nightly
+  username: postgres
+  password: "@trahas1s"
   pool: 5
   min_messages: error
 
