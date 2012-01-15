@@ -1,4 +1,5 @@
 HerokuTest::Application.routes.draw do
+  match '/' => 'feeds#index'
   match 'subjects' => 'subjects#index'
   resources :people
 

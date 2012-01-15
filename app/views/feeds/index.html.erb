@@ -1,0 +1,8 @@
+<table>
+<% @feeds.each do |feed| %>
+  <tr>
+    <td><%= link_to feed.title, feed.enclosure, :target => "_blank" %></td>
+  </tr>
+<% end %>
+</table>
+

@@ -1,12 +1,11 @@
-require 'feed'
+require 'rss'
 
-class SubjectsController < ApplicationController
+class FeedsController < ApplicationController
 
 # GET /subjects
   # GET /subjects.json
   def index
-    feed = Feed.new
-    @subjects = Subject.grouped
+    @feeds = Rss::Channels.feeds
 
     respond_to do |format|
       format.html # index.html.erb
