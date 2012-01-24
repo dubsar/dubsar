@@ -1,7 +1,9 @@
 HerokuTest::Application.routes.draw do
   match '/' => 'feeds#index'
   match 'subjects' => 'subjects#index'
+  resources :users
   resources :people
+  resources :emails
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

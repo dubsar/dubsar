@@ -1,0 +1,3 @@
+class Institution < Subject
+end
+

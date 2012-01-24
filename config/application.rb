@@ -45,5 +45,7 @@ module HerokuTest
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.active_record.schema_format = :sql
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/models/**/"]
   end
 end

@@ -1,0 +1,2 @@
+class YoutubeAccount < Account
+end

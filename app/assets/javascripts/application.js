@@ -7,3 +7,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//
+$(function() {
+  $("#person_email_tokens").tokenInput("/emails.json", {
+    propertyToSearch: 'email',
+    preventDuplicates: true
+  });
+});

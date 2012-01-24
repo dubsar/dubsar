@@ -1,8 +1,17 @@
-<table>
-<% @feeds.each do |feed| %>
-  <tr>
-    <td><%= link_to feed.title, feed.enclosure, :target => "_blank" %></td>
-  </tr>
-<% end %>
-</table>
-
+<div class="span-4 last prepend-10 append-10">
+</div>
+  <iframe class="span-14 last prepend-5 append-5"
+    id="video"
+    type="text/html"
+    width="640" height="385"
+    src="http://www.youtube.com/embed/4Adr_Pck6VI"
+    frameborder="0">
+  </iframe>
+<script>
+  $(document).ready(function() {
+    $('#next').click(function() {
+      $('#video').attr('src', "http://www.youtube.com/embed/0AvVAUVRP54?fs=1&autoplay=1");
+    })
+  }); 
+</script>
+<!-- gdata.youtube.com/feeds/videos/4Adr_Pck6VI" -->

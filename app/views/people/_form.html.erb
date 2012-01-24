@@ -2,7 +2,6 @@
   <% if @person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
       <ul>
       <% @person.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -14,6 +13,10 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email_tokens %><br />
+    <%= f.text_field :email_tokens, :class => "text", "data-pre" => @person.emails.to_json %>
   </div>
   <div class="actions">
     <%= f.submit %>

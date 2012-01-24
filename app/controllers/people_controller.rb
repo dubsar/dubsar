@@ -41,12 +41,10 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(params[:person])
+    p @person.inspect
 
     respond_to do |format|
       Person.transaction do 
-        subjectId  = SubjectId.new
-        subjectId.save
-        @person.id = subjectId.id
         if @person.save
           format.html { redirect_to @person, notice: 'Person was successfully created.' }
           format.json { render json: @person, status: :created, location: @person }
