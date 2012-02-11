@@ -1,0 +1,10 @@
+%ul.items
+  - if @search.count == 0
+    %li= "... oops .. nothing found"
+  - else
+    - @search.each do |item|
+      %li.item{:data => {:"d-item-class" => item.item_relation, :"d-item-id" => item.item_id}}= item.description
+
+= form_tag view_path, :id => "view", :method => :get do
+  %input#item-id(type="hidden" name="item-id")
+  %input#item-class(type="hidden" name="item-class")

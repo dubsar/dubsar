@@ -1,0 +1,2 @@
+class PdfDocument < Document
+end
