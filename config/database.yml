@@ -18,7 +18,7 @@ common: &common
   host: pg-server
   database: nightly
   username: postgres
-  password: "@trahas1s"
+  password: atrahas1s
   pool: 5
   min_messages: error
 
