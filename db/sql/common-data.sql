@@ -5,7 +5,7 @@ CREATE TABLE dubsar.subject_ids (id SERIAL PRIMARY KEY);
 CREATE OR REPLACE FUNCTION dubsar.new_subject_id() RETURNS integer
 AS $$
 	INSERT INTO dubsar.subject_ids values(default) RETURNING id;
-	SELECT lastval('subject_ids_id_seq');
+	SELECT lastval();
 $$ LANGUAGE sql;
 CREATE TABLE dubsar.subjects (id INTEGER PRIMARY KEY REFERENCES dubsar.subject_ids(id) DEFAULT dubsar.new_subject_id());
 
@@ -19,7 +19,7 @@ CREATE TABLE dubsar.thing_ids (id SERIAL PRIMARY KEY);
 CREATE OR REPLACE FUNCTION dubsar.new_thing_id() RETURNS integer
 AS $$
 	INSERT INTO dubsar.thing_ids values(default) RETURNING id;
-	SELECT lastval('object_ids_id_seq');
+	SELECT lastval();
 $$ LANGUAGE sql;
 CREATE TABLE dubsar.things (id INTEGER PRIMARY KEY REFERENCES dubsar.thing_ids(id) DEFAULT dubsar.new_thing_id());
 
