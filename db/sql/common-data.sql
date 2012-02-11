@@ -55,7 +55,7 @@ CREATE TABLE dubsar.documents (content TEXT, PRIMARY KEY(id), FOREIGN KEY(id) RE
 CREATE VIEW dubsar.thing_types AS SELECT p.relname, s.id FROM pg_catalog.pg_class p, dubsar.things s WHERE s.tableoid = p.oid;
 
 CREATE OR REPLACE VIEW dubsar.tags AS
-	SELECT ts_stat.word as "text", ts_stat.ndoc * ts_stat.nentry weight
+	SELECT ts_stat.word as "text", ts_stat.ndoc * ts_stat.nentry as "weight"
 	FROM ts_stat('select content from searches'::text) ts_stat(word, ndoc, nentry)
 	WHERE ts_stat.word !~~ '%.%'::text AND length(ts_stat.word) > 3
 	ORDER BY ts_stat.ndoc DESC, ts_stat.nentry DESC;
