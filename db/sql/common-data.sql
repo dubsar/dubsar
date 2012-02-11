@@ -4,8 +4,8 @@ CREATE SCHEMA dubsar;
 CREATE TABLE dubsar.subject_ids (id SERIAL PRIMARY KEY);
 CREATE OR REPLACE FUNCTION dubsar.new_subject_id() RETURNS bigint
 AS $$
-	INSERT INTO dubsar.subject_ids values(default) RETURNING id;
-	SELECT lastval();
+	INSERT INTO subject_ids values(default) RETURNING id;
+	SELECT currval('subject_ids_id_seq');
 $$ LANGUAGE sql;
 CREATE TABLE dubsar.subjects (id INTEGER PRIMARY KEY REFERENCES dubsar.subject_ids(id) DEFAULT dubsar.new_subject_id());
 
@@ -19,7 +19,7 @@ CREATE TABLE dubsar.thing_ids (id SERIAL PRIMARY KEY);
 CREATE OR REPLACE FUNCTION dubsar.new_thing_id() RETURNS bigint
 AS $$
 	INSERT INTO dubsar.thing_ids values(default) RETURNING id;
-	SELECT lastval();
+	SELECT currval('thing_ids_id_seq');
 $$ LANGUAGE sql;
 CREATE TABLE dubsar.things (id INTEGER PRIMARY KEY REFERENCES dubsar.thing_ids(id) DEFAULT dubsar.new_thing_id());
 
