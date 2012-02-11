@@ -41,7 +41,7 @@ CREATE TABLE dubsar.youtube_videos (
 )
 INHERITS(dubsar.videos);
 
-CREATE TABLE searches (
+CREATE TABLE dubsar.searches (
 	item_id INTEGER,
 	item_relation TEXT,
 	item_descriptive_column TEXT,
