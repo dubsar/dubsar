@@ -20,7 +20,11 @@ class Migrator < ActiveRecord::Migration
 			send(_method).each do |file|
 					puts "processing " << file
           sql = read_file(sql_file(file))
-          execute sql
+          begin
+            execute sql
+          rescue Exception => e
+            puts e.message
+          end
 			end
     end
     def read_file(_file_name)
