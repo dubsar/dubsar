@@ -17,6 +17,7 @@ common: &common
   adapter: postgresql
   host: pg-server
   database: nightly
+  schema_search_path: dubsar,public
   username: postgres
   password: "@trahas1s"
   pool: 5
