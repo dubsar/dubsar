@@ -2,7 +2,7 @@ CREATE SCHEMA dubsar;
 
 -- Subjects
 CREATE TABLE dubsar.subject_ids (id SERIAL PRIMARY KEY);
-CREATE OR REPLACE FUNCTION dubsar.new_subject_id() RETURNS integer
+CREATE OR REPLACE FUNCTION dubsar.new_subject_id() RETURNS bigint
 AS $$
 	INSERT INTO dubsar.subject_ids values(default) RETURNING id;
 	SELECT lastval();
@@ -16,7 +16,7 @@ CREATE VIEW dubsar.subject_types AS SELECT p.relname, s.id FROM pg_catalog.pg_cl
 
 -- Objects
 CREATE TABLE dubsar.thing_ids (id SERIAL PRIMARY KEY);
-CREATE OR REPLACE FUNCTION dubsar.new_thing_id() RETURNS integer
+CREATE OR REPLACE FUNCTION dubsar.new_thing_id() RETURNS bigint
 AS $$
 	INSERT INTO dubsar.thing_ids values(default) RETURNING id;
 	SELECT lastval();
