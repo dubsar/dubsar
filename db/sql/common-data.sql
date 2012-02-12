@@ -19,7 +19,7 @@ CREATE VIEW dubsar.subject_types AS SELECT p.relname, s.id FROM pg_catalog.pg_cl
 CREATE TABLE dubsar.thing_ids (id SERIAL PRIMARY KEY);
 CREATE OR REPLACE FUNCTION dubsar.new_thing_id() RETURNS bigint
 AS $$
-	INSERT INTO dubsar.thing_ids values(default) RETURNING id;
+	INSERT INTO thing_ids values(default) RETURNING id;
 	SELECT currval('thing_ids_id_seq');
 $$ LANGUAGE sql;
 CREATE TABLE dubsar.things (id INTEGER PRIMARY KEY REFERENCES dubsar.thing_ids(id) DEFAULT dubsar.new_thing_id());
