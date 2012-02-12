@@ -1,5 +1,5 @@
 CREATE SCHEMA dubsar;
-SET search_path public,dubsar
+SET search_path TO public,$user,dubsar
 
 -- Subjects
 CREATE TABLE dubsar.subject_ids (id SERIAL PRIMARY KEY);
