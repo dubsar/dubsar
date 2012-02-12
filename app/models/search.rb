@@ -9,7 +9,7 @@ class Search < ActiveRecord::Base
     where("content @@ to_tsquery(?)", q) 
   end
   def self.cloud(_limit=40)
-    cloud = ActiveRecord::Base.connection.exec_query "select * from dubsar.tags limit(#{_limit})"
+    cloud = ActiveRecord::Base.connection.exec_query "select * from tags limit(#{_limit})"
     #cloud.to_json
   end
 
