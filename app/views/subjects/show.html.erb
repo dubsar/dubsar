@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @cable.classification %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @cable.header %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @cable.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_cable_path(@cable) %> |
+<%= link_to 'Back', cables_path %>

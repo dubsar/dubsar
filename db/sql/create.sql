@@ -53,7 +53,6 @@ CREATE TABLE searches (
 	item_id INTEGER,
 	item_relation TEXT,
 	item_descriptive_column TEXT,
-	description TEXT,
 	content tsvector,
 	PRIMARY KEY(id),
 	FOREIGN KEY(id) REFERENCES dubsar.thing_ids(id)
@@ -123,8 +122,3 @@ select c1.relname child, c2.relname parent, i.depth
 from hier i, pg_class c1, pg_class c2
 where i.child = c1.oid and i.parent = c2.oid;
 
-CREATE OR REPLACE VIEW dubsar.tags AS
-	SELECT ts_stat.word as "text", ts_stat.ndoc * ts_stat.nentry weight
-	FROM ts_stat('select content from searches'::text) ts_stat(word, ndoc, nentry)
-	WHERE ts_stat.word !~~ '%.%'::text AND length(ts_stat.word) > 3
-	ORDER BY ts_stat.ndoc DESC, ts_stat.nentry DESC;

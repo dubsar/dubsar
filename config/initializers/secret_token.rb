@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Dubsar::Application.config.secret_token = '3a53564b23340f2766809eaa5ff56c2365fb9e4bd9be2b459593d3be4cc2605ab0409cd52de733f6ce7b3f9d92734654fa52cd70966cf51fa3799d4e4702678d'
+HerokuTest::Application.config.secret_token = '61e717da4520a03a3e3e6874c8af703293d266f2ec7af1b793cdf5b074ad4ca3cc06d89c44a92b12dd551895644acf53f8dcaa59acb575247f5514fdb7aff9f5'

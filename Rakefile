@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Dubsar::Application.load_tasks
+HerokuTest::Application.load_tasks
