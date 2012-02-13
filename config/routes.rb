@@ -1,18 +1,9 @@
-Dubsar::Application.routes.draw do
-  root :to => "home#index"
-
-  # search
-  match "/search" => "home#search", :as => "search"
-  match "/find" => "home#find", :as => "find"
-  match "/view" => "home#view", :as => "view"
-  match "/play" => "home#play", :as => "play"
-  match "/read" => "home#read", :as => "read"
-  match "/cloud" => "home#cloud", :as => "cloud"
-  
-  # admin
-  namespace :admin do
-    resources :posts
-  end
+HerokuTest::Application.routes.draw do
+  match '/' => 'feeds#index'
+  match 'subjects' => 'subjects#index'
+  resources :users
+  resources :people
+  resources :emails
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

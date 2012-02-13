@@ -1,0 +1,10 @@
+<h1>Listing subjects</h1>
+
+<table>
+<% @subjects.each do |k,v| %>
+  <tr>
+    <td><%= k  %>(<%= v %>)</td>
+  </tr>
+<% end %>
+</table>
+
