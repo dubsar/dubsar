@@ -8,7 +8,11 @@ Dubsar::Application.routes.draw do
   match "/play" => "home#play", :as => "play"
   match "/read" => "home#read", :as => "read"
   match "/cloud" => "home#cloud", :as => "cloud"
-  
+  match "/login" => "sessions#new", :as => "login"
+  match "/logout" => "sessions#destroy", :as => "logout"
+
+  resources :users
+  resources :sessions
   # admin
   namespace :admin do
     resources :posts

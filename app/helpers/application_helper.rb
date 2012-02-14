@@ -11,6 +11,8 @@ module ApplicationHelper
         current_page?(:controller => "home", :action => "view") ||
         current_page?(:controller => "home", :action => "play") ||
         current_page?(:controller => "home", :action => "read")
+    when "login"
+      selected = current_page? :controller => "sessions", :action => "new"
     end
     return selected ? "selected" : ""
   end

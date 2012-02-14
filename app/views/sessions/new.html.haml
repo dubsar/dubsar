@@ -1,0 +1,12 @@
+#login
+  = form_tag sessions_path, :class => "dubsar_form" do
+    .field
+      = label_tag :email
+      = text_field_tag :email, params[:email]
+    .field
+      = label_tag :password
+      = password_field_tag :password
+    .field
+      = label_tag :remember_me
+      = check_box_tag :remember_me, 1, params[:remember_me]
+    .actions= submit_tag "Log in"
