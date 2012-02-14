@@ -9,3 +9,7 @@ jQuery ->
       dashboardHeight = containerHeight - headerHeight - footerHeight
       $("#dashboard").css("height", dashboardHeight + "px")
       $("#sidebar").css("height", dashboardHeight + "px")
+
+jQuery ->
+  jQuery.fn.exists = () ->
+    jQuery(this).length > 0
