@@ -4,3 +4,8 @@
       %a(href="/") dubsar
     %li.title{:class => selected_tab("search")}
       %a(href="/search") search
+    %li.title.login{:class => selected_tab("login")}
+      - if logged_in?
+        %a(href="/logout") logout
+      - else
+        %a(href="/login") login

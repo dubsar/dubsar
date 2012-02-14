@@ -10,6 +10,8 @@ gem 'nokogiri'
 gem 'feedzirra'
 gem 'lazy_methods'
 gem 'thin'
+gem 'bcrypt-ruby'
+gem 'sorcery'
 
 group :assets do
 	gem 'compass'

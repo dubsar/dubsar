@@ -29,6 +29,9 @@
     &.title > a {
       text-align: center;
     }
+    &.login {
+      float: right;
+    }
     &:hover {
       position: static;
       > a {
