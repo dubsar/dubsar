@@ -1,6 +1,7 @@
 class YoutubeVideo < Video
   attr_writer :autoplay
   class << self
+    # @return [Video]
     def random
       order("RANDOM()").first
     end

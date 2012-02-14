@@ -1,3 +1,4 @@
+#  @abtract
 class Video < Medium
   self.abstract_class = true
   def src
