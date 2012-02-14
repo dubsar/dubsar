@@ -2,18 +2,18 @@ CREATE SCHEMA dubsar;
 SET search_path TO public,dubsar;
 
 -- Subjects
-CREATE TABLE dubsar.subject_ids (id SERIAL PRIMARY KEY);
-CREATE OR REPLACE FUNCTION dubsar.new_subject_id() RETURNS bigint
+CREATE TABLE dubsar.entity_ids (id SERIAL PRIMARY KEY);
+CREATE OR REPLACE FUNCTION dubsar.new_entity_id() RETURNS bigint
 AS $$
-	INSERT INTO subject_ids values(default) RETURNING id;
-	SELECT currval('subject_ids_id_seq');
+	INSERT INTO entity_ids values(default) RETURNING id;
+	SELECT currval('entity_ids_id_seq');
 $$ LANGUAGE sql;
-CREATE TABLE dubsar.subjects (id INTEGER PRIMARY KEY REFERENCES dubsar.subject_ids(id) DEFAULT dubsar.new_subject_id());
+CREATE TABLE dubsar.entities (id INTEGER PRIMARY KEY REFERENCES dubsar.entity_ids(id) DEFAULT dubsar.new_entity_id());
 
-CREATE TABLE dubsar.people (name TEXT, PRIMARY KEY(id), FOREIGN KEY(id) REFERENCES dubsar.subject_ids(id)) INHERITS(dubsar.subjects);
-CREATE TABLE dubsar.institutions (name TEXT, PRIMARY KEY(id), FOREIGN KEY(id) REFERENCES dubsar.subject_ids(id)) INHERITS(dubsar.subjects);
+CREATE TABLE dubsar.people (name TEXT, PRIMARY KEY(id), FOREIGN KEY(id) REFERENCES dubsar.entity_ids(id)) INHERITS(dubsar.entities);
+CREATE TABLE dubsar.institutions (name TEXT, PRIMARY KEY(id), FOREIGN KEY(id) REFERENCES dubsar.entity_ids(id)) INHERITS(dubsar.entities);
 
-CREATE VIEW dubsar.subject_types AS SELECT p.relname, s.id FROM pg_catalog.pg_class p, dubsar.subjects s WHERE s.tableoid = p.oid;
+CREATE VIEW dubsar.entity_types AS SELECT p.relname, s.id FROM pg_catalog.pg_class p, dubsar.entities s WHERE s.tableoid = p.oid;
 
 -- Objects
 CREATE TABLE dubsar.thing_ids (id SERIAL PRIMARY KEY);

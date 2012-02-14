@@ -1,22 +1,22 @@
 CREATE SCHEMA dubsar;
 
 -- Subjects
-CREATE TABLE dubsar.subject_ids (id SERIAL PRIMARY KEY);
-CREATE OR REPLACE FUNCTION dubsar.new_subject_id() RETURNS integer
+CREATE TABLE dubsar.entity_ids (id SERIAL PRIMARY KEY);
+CREATE OR REPLACE FUNCTION dubsar.new_entity_id() RETURNS integer
 AS $$
 DECLARE	
 	new_id integer;
 BEGIN
-	INSERT INTO dubsar.subject_ids values(default) RETURNING id INTO new_id;
+	INSERT INTO dubsar.entity_ids values(default) RETURNING id INTO new_id;
 	RETURN new_id;
 END;
 $$ LANGUAGE plpgsql;
-CREATE TABLE dubsar.subjects (id INTEGER PRIMARY KEY REFERENCES dubsar.subject_ids(id) DEFAULT dubsar.new_subject_id());
+CREATE TABLE dubsar.entities (id INTEGER PRIMARY KEY REFERENCES dubsar.entity_ids(id) DEFAULT dubsar.new_entity_id());
 
-CREATE TABLE dubsar.people (name TEXT, PRIMARY KEY(id), FOREIGN KEY(id) REFERENCES dubsar.subject_ids(id)) INHERITS(dubsar.subjects);
-CREATE TABLE dubsar.institutions (name TEXT, PRIMARY KEY(id), FOREIGN KEY(id) REFERENCES dubsar.subject_ids(id)) INHERITS(dubsar.subjects);
+CREATE TABLE dubsar.people (name TEXT, PRIMARY KEY(id), FOREIGN KEY(id) REFERENCES dubsar.entity_ids(id)) INHERITS(dubsar.entities);
+CREATE TABLE dubsar.institutions (name TEXT, PRIMARY KEY(id), FOREIGN KEY(id) REFERENCES dubsar.entity_ids(id)) INHERITS(dubsar.entities);
 
-CREATE VIEW dubsar.subject_types AS SELECT p.relname, s.id FROM pg_catalog.pg_class p, dubsar.subjects s WHERE s.tableoid = p.oid;
+CREATE VIEW dubsar.entity_types AS SELECT p.relname, s.id FROM pg_catalog.pg_class p, dubsar.entities s WHERE s.tableoid = p.oid;
 
 -- Objects
 CREATE TABLE dubsar.thing_ids (id SERIAL PRIMARY KEY);
@@ -77,17 +77,17 @@ END;
 $$ LANGUAGE plpgsql;
 CREATE TABLE dubsar.properties (
 	id INTEGER PRIMARY KEY DEFAULT dubsar.new_property_id(),
-	subject_id INTEGER NOT NULL,
+	entity_id INTEGER NOT NULL,
 	thing_id INTEGER NOT NULL,
-	UNIQUE (subject_id, thing_id),
+	UNIQUE (entity_id, thing_id),
 	FOREIGN KEY(id) REFERENCES dubsar.property_ids(id),
-	FOREIGN KEY(subject_id) REFERENCES dubsar.subject_ids(id),
+	FOREIGN KEY(entity_id) REFERENCES dubsar.entity_ids(id),
 	FOREIGN KEY(thing_id) REFERENCES dubsar.thing_ids(id)
 );
 CREATE TABLE dubsar.emailables (
 	LIKE dubsar.properties INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES,
 	FOREIGN KEY(id) REFERENCES dubsar.property_ids(id),
-	FOREIGN KEY(subject_id) REFERENCES dubsar.subject_ids(id),
+	FOREIGN KEY(entity_id) REFERENCES dubsar.entity_ids(id),
 	FOREIGN KEY(thing_id) REFERENCES dubsar.thing_ids(id)
 )
 INHERITS(dubsar.properties);
