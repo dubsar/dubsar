@@ -1,6 +1,6 @@
 #= require jquery
 #= require jquery_ujs
-#= require global
+#= require js/global
 #= require_tree .
 
 # global functions
