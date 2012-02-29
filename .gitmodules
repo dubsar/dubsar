@@ -1,0 +1,3 @@
+[submodule "lib/dubsar-ui"]
+	path = lib/dubsar-ui
+	url = git:/data/git/dubsar/dubsar-ui
