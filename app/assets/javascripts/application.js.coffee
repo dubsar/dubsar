@@ -1,6 +1,6 @@
 #= require jquery
 #= require jquery_ujs
-#= require js/global
+#= require js/dubsar-ui
 #= require_tree .
 
 # global functions
