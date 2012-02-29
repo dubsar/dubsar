@@ -58,6 +58,6 @@ module Dubsar
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.assets.paths << Rails.root.join("lib", "ui")
+    config.assets.paths << Rails.root.join("lib", "dubsar-ui")
   end
 end
