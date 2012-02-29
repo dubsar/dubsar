@@ -1,5 +1,5 @@
 module Admin
-  class BaseController < ApplicationController
+  class BaseController < HomeController
     before_filter :require_login
   end
 end

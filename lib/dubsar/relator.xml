@@ -1,0 +1,8 @@
+<relator>
+  <properties>
+    <property class='Emailable'>
+      <entity class='Person'></entity>
+      <thing class='Email'></thing>
+    </property>
+  </properties>
+</relator>
