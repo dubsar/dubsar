@@ -1,4 +1,8 @@
 class YoutubeVideo < Video
+  searchable do
+    text :title, :as => 'title'
+    text :description, :as => 'content'
+  end
   attr_writer :autoplay
   class << self
     # @return [Video]

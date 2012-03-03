@@ -12,6 +12,7 @@ gem 'lazy_methods'
 gem 'thin'
 gem 'bcrypt-ruby'
 gem 'sorcery'
+gem 'sunspot_rails'
 
 group :assets do
 	gem 'compass'
