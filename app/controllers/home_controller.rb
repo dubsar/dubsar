@@ -6,7 +6,8 @@ class HomeController < ApplicationController
   def search
   end
   def find
-    @search = Search.query(params['q'])
+    #@search = Search.query(params['q'])
+    @search = FullTextSearch.new(params['q']).items
     render :layout => "find"
   end
   def view

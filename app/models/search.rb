@@ -8,6 +8,9 @@ class Search < ActiveRecord::Base
     q = to_tsquery(q)
     where("content @@ to_tsquery(?)", q) 
   end
+  def self.find(q)
+    Sunspot.search(Bala) {|q| q.keywords q}
+  end
   def self.cloud(_limit=40)
     cloud = ActiveRecord::Base.connection.exec_query "select * from tags limit(#{_limit})"
     #cloud.to_json
