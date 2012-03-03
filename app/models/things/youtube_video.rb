@@ -1,9 +1,8 @@
 class YoutubeVideo < Video
-  searchable do
-    text :title, :as => 'title'
-    text :description, :as => 'content'
-  end
   attr_writer :autoplay
+  def content
+    title << " " << description
+  end
   class << self
     # @return [Video]
     def random
