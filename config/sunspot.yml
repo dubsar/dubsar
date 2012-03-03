@@ -1,0 +1,15 @@
+common: &common
+  solr:
+    hostname: ec2-107-21-71-243.compute-1.amazonaws.com
+    port: 8080
+    path: /solr/dubsar
+    log_level: WARNING
+production:
+  <<: *common
+
+development:
+  <<: *common
+
+test:
+  <<: *common
+
