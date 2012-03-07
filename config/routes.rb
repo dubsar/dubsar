@@ -1,4 +1,6 @@
 Dubsar::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
   root :to => "home#index"
 
   # search
@@ -13,9 +15,11 @@ Dubsar::Application.routes.draw do
 
   resources :users
   resources :sessions
-  # admin
+
   namespace :admin do
-    resources :posts
+    resources :people, :institutions do
+      resources :emails
+    end
   end
 
   # The priority is based upon order of creation:

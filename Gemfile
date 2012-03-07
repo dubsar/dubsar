@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
+gem 'ruby-debug19'
+gem 'pry', :group => :development
 
 gem 'simple_form'
 gem 'haml-rails'
@@ -13,6 +15,8 @@ gem 'thin'
 gem 'bcrypt-ruby'
 gem 'sorcery'
 gem 'sunspot_rails'
+gem 'activeadmin'
+gem 'meta_search', '>= 1.1.0.pre'
 
 group :assets do
 	gem 'compass'
