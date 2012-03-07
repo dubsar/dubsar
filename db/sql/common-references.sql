@@ -14,10 +14,10 @@ CREATE TABLE dubsar.properties (
 	FOREIGN KEY(thing_id) REFERENCES dubsar.thing_ids(id)
 );
 CREATE TABLE dubsar.emailables (
-	LIKE dubsar.properties INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES,
+	PRIMARY KEY(id),
 	FOREIGN KEY(id) REFERENCES dubsar.property_ids(id),
 	FOREIGN KEY(entity_id) REFERENCES dubsar.entity_ids(id),
-	FOREIGN KEY(thing_id) REFERENCES dubsar.thing_ids(id)
+	FOREIGN KEY(thing_id) REFERENCES dubsar.emails(id)
 )
 INHERITS(dubsar.properties);
 

@@ -8,7 +8,8 @@ class FullTextSearch
 
   private
   def retrieve(_q)
-    Bala.search do
+    # use Sunspot.sarch(Model) to avoid MetaSearch conflicts
+    Sunspot.search(Bala) do
       fulltext _q
     end.results
   end
@@ -33,4 +34,3 @@ class FullTextSearch
     end
   end
 end
-

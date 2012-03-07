@@ -16,7 +16,7 @@
 common: &common
   adapter: postgresql
   host: pg-server
-  database: nightly
+  database: dubsar-active-admin-dev
   username: postgres
   password: "@trahas1s"
   pool: 5

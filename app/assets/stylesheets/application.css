@@ -5,5 +5,5 @@
  *= require_self
  *= require css/dubsar-ui
  *= require jqcloud
- *= require_tree . 
+ * require_tree . 
 */

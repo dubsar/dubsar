@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    # TODO: handle no videos in db
     @video = YoutubeVideo.random
     @video.autoplay = false
   end

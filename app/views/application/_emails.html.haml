@@ -1,0 +1,10 @@
+= semantic_form_for([:admin, parent, Email.new], :remote => true) do |f|
+  = f.input :email, :as => :string
+  = f.buttons
+
+%table
+  %tr
+    %td
+      %ul
+        - parent.emails.each do |e|
+          %li= e.email
