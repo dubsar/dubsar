@@ -7,6 +7,7 @@ Devise.use_salt_as_remember_token = nil
 #silence Formtastic deprecations
 ActiveSupport::Deprecation.silenced = true
 
+# remove default footer
 module ActiveAdmin 
   module Views 
     module Pages 
@@ -30,7 +31,7 @@ ActiveAdmin.setup do |config|
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-  # config.site_title_link = "/"
+  config.site_title_link = "/"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
@@ -76,7 +77,7 @@ ActiveAdmin.setup do |config|
   # This setting changes the method which Active Admin calls
   # within the controller.
   #config.authentication_method = :authenticate_admin_user!
-  config.authentication_method = false
+  config.authentication_method = :require_login
 
 
   # == Current User
