@@ -64,13 +64,5 @@ CREATE OR REPLACE VIEW dubsar.tags AS
 	ORDER BY ts_stat.ndoc DESC, ts_stat.nentry DESC;
 
 -- APPLICATION TOOLS
-CREATE TABLE dubsar.users(
-	id SERIAL PRIMARY KEY,
-	email TEXT UNIQUE,
-	crypted_password TEXT,
-	salt TEXT,
-	remember_me_token TEXT,
-	remember_me_token_expires_at TIMESTAMP
-);
 
 
