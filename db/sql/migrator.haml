@@ -1,20 +1,10 @@
 %sql
   %create
-    %common
-      %relations
-        %data
-          %file common-data.sql
-        %references
-          %file common-references.sql
-        %functions
-          %file common-functions.sql
-    %specific
-      %master
-        %functions
-          %file master-functions.sql
-      %heroku
-        %functions
-          %file heroku-functions.sql
-  %drop drop.sql
-
-
+    dubsar.sql
+    entity.sql
+    thing.sql
+    property.sql
+    inheritance.sql
+    system.sql
+  %drop
+    drop.sql

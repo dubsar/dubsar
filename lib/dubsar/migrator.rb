@@ -1,37 +1,35 @@
 class Migrator < ActiveRecord::Migration
-	class << self
-		def create_master
-      create
-    end
-    def create_heroku
-      create "heroku"
-    end
+  class << self
     def drop
-      run "common_drop"
+      run "drop_schema"
+    end
+    def create
+      run "create_schema"
+    end
+    def push(_file)
+      sql = read_sql(sql_file(_file))
+      execute_sql sql
     end
     private
-		def create(version="master")
-			%W(data references functions).each do |section|
-				run "common_#{section}"
-			end
-      run "#{version}_functions"
-		end
     def run(_method)
-			send(_method).each do |file|
-					puts "processing " << file
-          sql = read_file(sql_file(file))
-          begin
-            execute sql
-          rescue Exception => e
-            puts e.message
-          end
-			end
+      send(_method).each do |file|
+        puts "processing " << file
+        sql = read_sql(sql_file(file))
+        execute_sql sql
+      end
     end
-    def read_file(_file_name)
+    def execute_sql(_sql)
+      begin
+        execute _sql
+      rescue Exception => e
+        puts e.message
+      end
+    end
+    def read_sql(_sql_file)
       sql = ""
-      source = File.new(_file_name, "r")
+      source = File.new(_sql_file, "r")
       while (line = source.gets)
-          sql << line
+        sql << line
       end
       source.close
       sql
@@ -44,39 +42,20 @@ class Migrator < ActiveRecord::Migration
     end
     def read_migrator
       haml = File.read(File.join(sql_root, "migrator.haml"))
-			Nokogiri::XML(Haml::Engine.new(haml).render)
+      Nokogiri::XML(Haml::Engine.new(haml).render)
     end
-		def migrator
+    def migrator
       @@xml ||= read_migrator
-		end
-		def common
-			@@common ||= migrator.css "create common"
-		end
-		def common_data
-			@@common_data ||= to_array common.css "data file"
-		end
-		def common_references
-			@@common_references ||= to_array common.css "references file"
-		end
-		def common_functions
-			@@common_functions ||= to_array common.css "functions file"
-		end
-		def specific
-			@@specific ||= migrator.css "create specific"
-		end
-		def master_functions
-			@@master_functions ||= to_array specific.css "master functions file"
-		end
-		def heroku_functions
-			@@heroku_functions ||= to_array specific.css "heroku functions file"
-		end
-		def common_drop
-			@@common_drop ||= to_array migrator.css "drop"
-		end
-		def to_array(nodes)
-			array = []
-			nodes.each {|node| array << node.text()}
-			array
-		end
-	end
+    end
+    def create_schema
+      to_array migrator.css "create"
+    end
+    def drop_schema
+      to_array migrator.css "drop"
+    end
+    def to_array(_file_list)
+      _file_list.text().split(/\s/).reject {|s| s.empty?}
+    end
+  end
 end
+
