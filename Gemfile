@@ -17,6 +17,7 @@ gem 'sorcery'
 gem 'sunspot_rails'
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
+gem 'ancestry'
 
 group :assets do
 	gem 'compass'
