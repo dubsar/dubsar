@@ -18,6 +18,7 @@ gem 'sunspot_rails'
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
 gem 'ancestry'
+gem 'cancan'
 
 group :assets do
 	gem 'compass'
