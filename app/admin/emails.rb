@@ -1,6 +1,8 @@
 ActiveAdmin.register Email do
   menu :parent => "Things"
   controller do
+    # TODO
+    #authorize_resource
     def create
       @email = Email.where(:email => params[:email][:email]).first_or_create!
       if @emailable = find_emailable

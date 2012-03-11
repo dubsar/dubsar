@@ -1,4 +1,6 @@
 ActiveAdmin.register Person do
+  # TODOD
+  #controller.authorize_resource
   menu :parent => "Entities"
   index do
     column :name do |p|
