@@ -1,6 +1,6 @@
-CREATE TYPE inh_tree AS (node OID, parent OID);
+CREATE TYPE dubsar.inh_tree AS (node OID, parent OID);
 
-CREATE OR REPLACE VIEW inheritance AS 
+CREATE OR REPLACE VIEW dubsar.inheritance AS 
 	SELECT DISTINCT i.inhparent AS node, NULL::oid AS parent
 	FROM pg_inherits i
 	WHERE NOT (i.inhparent IN ( SELECT pg_inherits.inhrelid FROM pg_inherits))
@@ -9,7 +9,7 @@ CREATE OR REPLACE VIEW inheritance AS
 	FROM pg_inherits
 ;
 
-CREATE OR REPLACE FUNCTION get_inh_tree(parent oid) RETURNS SETOF inh_tree AS
+CREATE OR REPLACE FUNCTION dubsar.get_inh_tree(parent oid) RETURNS SETOF inh_tree AS
 $$
 	SELECT CAST((node, parent) AS inh_tree)
 	FROM		 inheritance
@@ -24,14 +24,14 @@ $$
 LANGUAGE sql
 ;
 
-CREATE OR REPLACE FUNCTION get_inh_ancestry(oid) RETURNS character varying AS
+CREATE OR REPLACE FUNCTION dubsar.get_inh_ancestry(oid) RETURNS character varying AS
 $$
 	SELECT array_to_string(array(SELECT parent FROM get_inh_tree($1	)), '/')
 $$
 LANGUAGE sql
 ;
 
-CREATE OR REPLACE VIEW inheritances AS 
+CREATE OR REPLACE VIEW dubsar.inheritances AS 
  SELECT i.node::integer AS id, c.relname AS name, get_inh_ancestry(i.node) AS ancestry
  FROM inheritance i JOIN pg_class c ON i.node = c.oid
 ;
