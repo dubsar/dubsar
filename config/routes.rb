@@ -16,11 +16,13 @@ Dubsar::Application.routes.draw do
   resources :users
   resources :sessions
 
-  namespace :admin do
-    resources :people, :institutions do
-      resources :emails
-    end
-  end
+  #namespace :admin do
+  #  resources :people, :institutions do
+  #    resources :emails
+  #  end
+  #end
+
+  get "*route" => "routes#resolve" 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -12,9 +12,9 @@ production:
 
 development:
   solr:
-    hostname: ec2-107-21-71-243.compute-1.amazonaws.com
-    port: 8080
-    path: /solr/dubsar-dev
+    hostname: solr-server
+    port: 80
+    path: /solr/dubsar
 
 test:
   <<: *common
