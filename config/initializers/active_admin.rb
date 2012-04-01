@@ -148,5 +148,19 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_print_stylesheet.css', :media => :print
   #
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
+  #   config.register_javascript 'my_javascript.js'A
+  config.before_filter :check_admin_role
+end
+
+ActiveAdmin::ResourceController.class_eval do
+  def check_admin_role
+    return if current_user.is?(:admin)
+    flash[:notice] = "You need to be an admin to access this part of the application"
+    redirect_to root_path
+  end
+  protected
+
+  def current_ability
+    @current_ability ||= AdminAbility.new(current_user)
+  end
 end

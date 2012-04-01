@@ -14,7 +14,6 @@ class Ability
     send(meth) if respond_to? meth
   end
   def admin_rules
-    can :edit, Intitution
     can :manage, :all
   end
   def default_rules

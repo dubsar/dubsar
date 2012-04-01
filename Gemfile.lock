@@ -243,6 +243,7 @@ DEPENDENCIES
   compass-rails
   feedzirra
   haml-rails
+  inherited_resources
   jquery-rails
   lazy_methods
   meta_search (>= 1.1.0.pre)

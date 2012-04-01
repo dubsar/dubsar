@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title Dubsar
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body.home
+    #container
+      #header= render 'main_menu'
+      #dashboard= yield
+      #footer= "@ Alessandro Scotti #{Time.now.year}. All rights reserved"

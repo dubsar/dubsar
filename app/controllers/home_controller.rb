@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  load_and_authorize_resource :YoutubeVideo
+  load_and_authorize_resource :Video
   def index
     # TODO: handle no videos in db
     @video = YoutubeVideo.random

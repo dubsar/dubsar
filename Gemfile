@@ -19,6 +19,7 @@ gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
 gem 'ancestry'
 gem 'cancan'
+gem 'inherited_resources'
 
 group :assets do
 	gem 'compass'
