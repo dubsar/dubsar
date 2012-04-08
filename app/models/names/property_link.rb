@@ -1,0 +1,2 @@
+class PropertyLink < Name
+end

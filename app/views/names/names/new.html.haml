@@ -1,0 +1,14 @@
+- url = eval "names_#{@name.path}_path"
+= simple_form_for @name, :url => url, :html => {:id => "new_name_form"} do |f|
+  = f.input :parent, :collection => @name.class.order(:name), :include_blank => false
+  = f.input :name
+  = f.hidden_field :fields, :id => "new_name_fields"
+  = f.button :submit
+
+%div#field_form_proto
+  %input#field_form_name{name: "name"}
+  %select#field_form_type
+    - %w(String Text Integer Binary).sort.each do |o|
+      %option= o
+  %button#field_form_submit= "Add Field"
+

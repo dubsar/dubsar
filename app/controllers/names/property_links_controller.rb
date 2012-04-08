@@ -1,0 +1,2 @@
+class PropertyLinksController < NamesController
+end

@@ -15,7 +15,13 @@ Dubsar::Application.routes.draw do
 
   resources :users
   resources :sessions
-
+  namespace :names do
+    root to: "names#home"
+    resources :entity_names,  :path => "entities", :as => "entities"
+    resources :thing_names,   :path => "things", :as => "things"
+    resources :property_names  #:as => "properites"
+    resources :property_links  #:as => "links"
+  end
   #namespace :admin do
   #  resources :people, :institutions do
   #    resources :emails
