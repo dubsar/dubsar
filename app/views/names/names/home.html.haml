@@ -1,0 +1,4 @@
+%table
+  - ["things", "entities"].each do |name|
+    %tr
+      %td= nested_hierarchy(name, Inheritance.send(name))

@@ -1,0 +1,6 @@
+.nested_hierarchies {
+  left: 3em;
+  .nested_hierarchies {
+    left: 6em;
+  }
+}

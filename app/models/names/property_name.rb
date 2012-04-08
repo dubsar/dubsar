@@ -1,0 +1,2 @@
+class PropertyName < Name
+end

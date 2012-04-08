@@ -1,3 +1,12 @@
+CREATE OR REPLACE FUNCTION array_reverse(anyarray) RETURNS anyarray AS $$
+	SELECT ARRAY(
+		SELECT $1[i]
+		FROM generate_subscripts($1,1) AS s(i)
+		ORDER BY i DESC
+	);
+$$
+LANGUAGE sql;
+
 CREATE TYPE dubsar.inh_tree AS (node OID, parent OID);
 
 CREATE OR REPLACE VIEW dubsar.inheritance AS 
@@ -26,12 +35,12 @@ LANGUAGE sql
 
 CREATE OR REPLACE FUNCTION dubsar.get_inh_ancestry(oid) RETURNS character varying AS
 $$
-	SELECT array_to_string(array(SELECT parent FROM get_inh_tree($1	)), '/')
+	SELECT array_to_string(array_reverse(array(SELECT parent FROM get_inh_tree($1	))), '/')
 $$
 LANGUAGE sql
 ;
 
 CREATE OR REPLACE VIEW dubsar.inheritances AS 
- SELECT i.node::integer AS id, c.relname AS name, get_inh_ancestry(i.node) AS ancestry
+ SELECT i.node::integer AS id, c.relname AS name, NULLIF(get_inh_ancestry(i.node), '') AS ancestry
  FROM inheritance i JOIN pg_class c ON i.node = c.oid
 ;

@@ -6,7 +6,7 @@ gem 'pry', :group => :development
 
 gem 'simple_form'
 gem 'haml-rails'
-gem 'pg'
+gem 'pg', '>= 0.13.2'
 gem 'activerecord-postgresql-extensions'
 gem 'nokogiri'
 gem 'feedzirra'
