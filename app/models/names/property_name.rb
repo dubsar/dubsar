@@ -1,2 +1,4 @@
-class PropertyName < Name
+module Names
+  class PropertyName < Name
+  end
 end

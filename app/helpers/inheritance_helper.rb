@@ -9,12 +9,20 @@ module InheritanceHelper
     _hierarchy.map do |node, childs|
       content_tag(:ul, :class => "nested_hierarchies") do
         name = _clazz.where(name: node.name).first
-        url = (eval "names_#{name.path}_path(name)")
+        url = get_url(node.name, name)
         path = link_to(name.name, url)
         content_tag(:li) do
           path + nested_hierarchy_runner(childs, _clazz, _name)
         end
       end
     end.join.html_safe
+  end
+  def get_url(node_name, name)
+    if %w(things entities).include?(node_name)
+      url = "/names/#{node_name}"
+    else
+      url = (eval "names_#{name.path}_path(name)")
+    end
+    url
   end
 end

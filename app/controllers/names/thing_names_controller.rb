@@ -2,7 +2,7 @@ module Names
   class ThingNamesController < NamesController
     respond_to :html
     def index
-      respond_with(@names = Names::ThingName.all)
+      respond_with(@names = Names::ThingName.all.reject {|n| n.name == "things"})
     end
     def show
       respond_with(@name = Names::ThingName.find(params[:id]))
