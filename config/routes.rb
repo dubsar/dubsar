@@ -1,6 +1,4 @@
 Dubsar::Application.routes.draw do
-  ActiveAdmin.routes(self)
-
   root :to => "home#index"
 
   # search

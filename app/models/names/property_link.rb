@@ -1,2 +1,4 @@
-class PropertyLink < Name
+module Names
+  class PropertyLink < Name
+  end
 end

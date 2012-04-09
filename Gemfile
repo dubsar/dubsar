@@ -1,25 +1,29 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-gem 'ruby-debug19'
-gem 'pry', :group => :development
+gem 'unicorn'
 
 gem 'simple_form'
+gem 'lazy_methods'
 gem 'haml-rails'
 gem 'pg', '>= 0.13.2'
-gem 'activerecord-postgresql-extensions'
 gem 'nokogiri'
 gem 'feedzirra'
-gem 'lazy_methods'
-gem 'thin'
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'sorcery'
 gem 'sunspot_rails'
-gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
 gem 'ancestry'
 gem 'cancan'
 gem 'inherited_resources'
+
+group :development do
+	gem 'ruby-debug19', :require => 'ruby-debug'
+	gem 'pry'
+end
+
+group :production do
+end
 
 group :assets do
 	gem 'compass'
@@ -31,17 +35,6 @@ end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+# delenda
+#gem 'activerecord-postgresql-extensions'
+#gem 'thin'

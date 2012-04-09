@@ -1,9 +1,8 @@
 module Names
-  class NamesController < ApplicationController
+  class NamesController < NamesApplicationController
     layout 'home'
     respond_to :html
   end
-  def show
-    puts params
+  def home
   end
 end

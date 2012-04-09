@@ -1,2 +1,4 @@
-class PropertyNamesController < NamesController
+module Names
+  class PropertyNamesController < NamesController
+  end
 end
