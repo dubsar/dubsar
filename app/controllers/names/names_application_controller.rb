@@ -1,5 +1,5 @@
 module Names
-  class NamesApplicationController < ActionController::Base
-    protect_from_forgery
+  class NamesApplicationController < ApplicationController
+    before_filter :require_login
   end
 end

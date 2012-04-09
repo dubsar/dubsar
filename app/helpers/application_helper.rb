@@ -13,6 +13,8 @@ module ApplicationHelper
         current_page?(:controller => "home", :action => "read")
     when "login"
       selected = current_page? :controller => "sessions", :action => "new"
+    when "names"
+      selected = controller.class.name.start_with? "Names"
     end
     return selected ? "selected" : ""
   end
