@@ -1,2 +1,12 @@
-- path = eval "new_names_#{@name.path}_path"
-= link_to "New", path
+- clazz = eval "#{@name.name.singularize.camelize}"
+%table
+  %tr
+    %td
+      %h3= clazz.name
+  - clazz.columns.each do |column|
+    %tr
+      %td
+        %strong= column.name
+
+- new_path = eval "new_names_#{@name.path}_path"
+= link_to "New", new_path

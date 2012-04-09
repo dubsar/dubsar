@@ -1,4 +1,4 @@
-- url = "/names/#{@name.path}"
+- url = "/names/#{@name.path(true)}"
 = simple_form_for @name, :url => url, :html => {:id => "new_name_form"} do |f|
   = f.input :parent, :collection => @name.class.order(:name), :include_blank => false
   = f.input :name
