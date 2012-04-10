@@ -18,4 +18,20 @@ module ApplicationHelper
     end
     return selected ? "selected" : ""
   end
+  def names_path(name, action)
+    p = %w(new edit).include?(action) ? "#{action}_names_" : "names_"
+    p << "thing" if name.thing?
+    p << "entity" if name.entity?
+    p = %w(index create).include?(action) ? p.pluralize : p
+    p << "_path"
+    case action
+    when "edit", "show"
+      p = "#{p}(name)"
+    when "new"
+      p = "#{p}(name.class.new)"
+    else
+      p = "#{p}"
+    end
+    eval p
+  end
 end
