@@ -1,9 +1,8 @@
 %table
   - @names.each do |name|
-    - url = eval "names_#{name.path}_path(name)"
     %tr
-      %td= link_to name.name, url
+      %td= link_to name.name, names_path(name, "show")
 
 %table
   %tr
-    %td= link_to "Names Home", "/names"
+    %td= link_to "Names Home", names_root_path

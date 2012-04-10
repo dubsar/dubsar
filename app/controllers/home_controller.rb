@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
-  load_and_authorize_resource :Video
+  #load_and_authorize_resource class: "Matters::Things::Video"
   def index
     # TODO: handle no videos in db
-    @video = YoutubeVideo.random
+    @video = Matters::Things::YoutubeVideo.random
     @video.autoplay = false
   end
   def search
@@ -45,10 +45,10 @@ class HomeController < ApplicationController
       end
     end
     def default_clazz
-      YoutubeVideo
+      Matters::Things::YoutubeVideo
     end
     def default_id
-      YoutubeVideo.random.id
+      Matters::Things::YoutubeVideo.random.id
     end
   end
 end

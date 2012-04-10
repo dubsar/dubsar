@@ -1,2 +1,0 @@
-class PdfDocument < Document
-end

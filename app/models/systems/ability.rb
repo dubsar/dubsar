@@ -20,7 +20,7 @@ class Ability
     can :read, :all
   end
   def guest_user_rules
-    can :read, :all
+    can :manage, :all
   end
 end
 

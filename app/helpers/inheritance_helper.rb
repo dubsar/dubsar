@@ -19,9 +19,9 @@ module InheritanceHelper
   end
   def get_url(node_name, name)
     if %w(things entities).include?(node_name)
-      url = "/names/#{node_name}"
+      url = names_path(name, "index")
     else
-      url = (eval "names_#{name.path}_path(name)")
+      url = names_path(name, "show")
     end
     url
   end

@@ -1,4 +1,4 @@
-- clazz = eval "#{@name.name.singularize.camelize}"
+- clazz = @name.matter
 %table
   %tr
     %td
@@ -8,5 +8,4 @@
       %td
         %strong= column.name
 
-- new_path = eval "new_names_#{@name.path}_path"
-= link_to "New", new_path
+= link_to "New", names_path(@name, "new")

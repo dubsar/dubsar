@@ -12,7 +12,6 @@ gem 'feedzirra'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'sorcery'
 gem 'sunspot_rails'
-gem 'meta_search', '>= 1.1.0.pre'
 gem 'ancestry'
 gem 'cancan'
 gem 'inherited_resources'
@@ -36,5 +35,3 @@ end
 gem 'jquery-rails'
 
 # delenda
-#gem 'activerecord-postgresql-extensions'
-#gem 'thin'
