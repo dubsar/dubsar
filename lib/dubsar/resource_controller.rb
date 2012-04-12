@@ -36,7 +36,9 @@ class ResourceController
         name.constantize
       end
       def find
-        params.map {|k,v| v if k.start_with("matters")}.first
+        p = params[params.keys.select {|k| k.start_with?("matters")}.first]
+        puts p.inspect
+        p
       end
     end
   end

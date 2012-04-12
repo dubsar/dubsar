@@ -14,7 +14,7 @@ module Names
       name = Names::ThingName.new
       Name.transaction do
         name = Names::ThingName.create(params["names_thing_name"])
-        puts name.inspect
+        puts name.fields.inspect
         parent = Names::ThingName.where(id: name.parent).first
         DB.create_thing(name.name, parent.name, name.fields)
       end
