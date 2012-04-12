@@ -1,5 +1,7 @@
+require 'active_support/inflector'
 module Names
   class Name < Bala
+    before_create :check_name
     attr_accessor :parent, :fields
     attr_accessible :name, :parent, :fields
     self.abstract_class = true
@@ -24,6 +26,9 @@ module Names
       cname << "Entities" if entity?
       cname << "::" << self.name.singularize.camelize
       cname.constantize
+    end
+    def check_name
+      self.name = self.name.tableize if name
     end
   end
 end

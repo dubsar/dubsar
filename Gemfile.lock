@@ -14,7 +14,6 @@ GEM
       rack-cache (~> 1.1)
       rack-test (~> 0.6.1)
       sprockets (~> 2.1.2)
-    active_decorator (0.3.2)
     activemodel (3.2.1)
       activesupport (= 3.2.1)
       builder (~> 3.0.0)
@@ -201,7 +200,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_decorator
   ancestry
   bcrypt-ruby (~> 3.0.0)
   cancan

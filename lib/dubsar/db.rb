@@ -12,7 +12,7 @@ class DB
     def initialize(_name, _type)
       check_name(_name)
       check_type(_type)
-      @name, @type = _name, Types[_type]
+      @name, @type = name, Types[_type]
     end
     private
     def check_name(_name)
@@ -27,10 +27,10 @@ class DB
   end
   class << self
     def create_entity(name, parent = "entities", fields = [])
-      create_table name, parent, fields, "entity"
+      routing_create_table name, parent, fields, "entity"
     end
     def create_thing(name, parent = "things", fields = [])
-      create_table name, parent, fields, "thing"
+      routing_create_table name, parent, fields, "thing"
     end
     def exists?(_table_name)
       execute("SELECT count(*) AS count FROM pg_class WHERE relname = $1", [_table_name]).each do |row|
@@ -38,6 +38,10 @@ class DB
       end
     end
     private
+    def routing_create_table(name, parent, fields, sequence)
+      create_table name, parent, fields, sequence
+      reload_routes
+    end
     def create_table(name, parent, fields, sequence)
       sql = "CREATE TABLE dubsar.#{name} ("
       fields.each do |field|
@@ -53,6 +57,9 @@ class DB
     end
     def execute(_sql, _values = [])
       connection.exec _sql, _values
+    end
+    def reload_routes
+      Dubsar::Application.reload_routes!
     end
   end
 end

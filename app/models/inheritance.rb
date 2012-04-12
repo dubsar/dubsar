@@ -7,4 +7,7 @@ class Inheritance < ActiveRecord::Base
   def self.things
     node = self.roots.find_by_name("things").subtree.arrange
   end
+  def self.matters
+    roots.select {|root| %w(entities things).include?(root.name)}
+  end
 end

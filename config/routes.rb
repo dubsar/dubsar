@@ -1,5 +1,7 @@
 Dubsar::Application.routes.draw do
+
   root :to => "home#index"
+
   # scene
   match "/search" => "home#search", :as => "search"
   match "/find" => "home#find", :as => "find"
@@ -9,6 +11,7 @@ Dubsar::Application.routes.draw do
   match "/cloud" => "home#cloud", :as => "cloud"
   match "/login" => "sessions#new", :as => "login"
   match "/logout" => "sessions#destroy", :as => "logout"
+
   # names
   namespace :names do
     root to: "names#home"
@@ -17,18 +20,14 @@ Dubsar::Application.routes.draw do
     resources :property_names, :path => "properites", :as => "properties"
     resources :property_links, :path => "links", :as => "links"
   end
+  
   # matters
   namespace :matters do
-    namespace :entities do
-    end
-    namespace :things do
-    end
+    root to: "matters#home"
   end
+  Router.apply(self)
   
   # system
   resources :users
   resources :sessions
-  
-  # TODO drop
-  get "*route" => "routes#resolve" 
 end
