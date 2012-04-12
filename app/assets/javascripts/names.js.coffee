@@ -5,7 +5,6 @@ class Fields
   fields = []
   add: (_field) ->
     fields.push(_field)
-    alert(this.json())
   json: ->
     JSON.stringify(fields)
 

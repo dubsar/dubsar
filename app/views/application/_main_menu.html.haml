@@ -5,6 +5,9 @@
     %li.title{:class => selected_tab("search")}
       %a(href="/search") search
     - if logged_in?
+      %li.title{:class => selected_tab("matters")}
+        %a(href="/matters") matters
+    - if logged_in?
       %li.title{:class => selected_tab("names")}
         %a(href="/names") names
     %li.title.login{:class => selected_tab("login")}
