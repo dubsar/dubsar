@@ -12,7 +12,7 @@ class DB
     def initialize(_name, _type)
       check_name(_name)
       check_type(_type)
-      @name, @type = name, Types[_type]
+      @name, @type = _name, Types[_type]
     end
     private
     def check_name(_name)

@@ -28,7 +28,8 @@ module Names
       cname.constantize
     end
     def check_name
-      self.name = self.name.tableize if name
+      self.name = self.name.tableize
+      puts self.name
     end
   end
 end
