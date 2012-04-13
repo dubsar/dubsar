@@ -59,7 +59,7 @@ class DB
       connection.exec _sql, _values
     end
     def reload_routes
-      Dubsar::Application.reload_routes!
+      Router.reload
     end
   end
 end

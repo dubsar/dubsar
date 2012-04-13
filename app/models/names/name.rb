@@ -5,6 +5,9 @@ module Names
     attr_accessor :parent, :fields
     attr_accessible :name, :parent, :fields
     self.abstract_class = true
+    def self.table_name
+      (self.name.split("::").last << "Name").tableize
+    end
     def fields=(_fields)
       @fields = []
       JSON.parse(_fields).each do |f|
@@ -12,10 +15,10 @@ module Names
       end
     end
     def entity?
-      self.class.name == "Names::EntityName"
+      self.class.name == "Names::Entity"
     end
     def thing?
-      self.class.name == "Names::ThingName"
+      self.class.name == "Names::Thing"
     end
     def matter
       # the name attribute holds the table name
@@ -29,7 +32,6 @@ module Names
     end
     def check_name
       self.name = self.name.tableize
-      puts self.name
     end
   end
 end

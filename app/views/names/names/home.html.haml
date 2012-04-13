@@ -1,4 +1,4 @@
 %table
-  - ["things", "entities"].each do |name|
+  - names_forest.each do |tree|
     %tr
-      %td= nested_hierarchy(name, Inheritance.send(name))
+      %td= tree

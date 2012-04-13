@@ -1,0 +1,6 @@
+%dl
+  - @matter.columns.each do |attr|
+    %dt= attr.name.humanize
+    - begin
+      %dd= eval "#{@matter}.#{attr.name}"
+    - rescue

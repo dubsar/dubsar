@@ -1,4 +1,4 @@
 module Names
-  class Link < Name
+  class Entity < Name
   end
 end
