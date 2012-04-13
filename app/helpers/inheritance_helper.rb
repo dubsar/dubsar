@@ -1,28 +1,49 @@
 module InheritanceHelper
-  def nested_hierarchy(_name, _hierarchy)
-    name = _name.singularize.camelize
-    clazz = eval "Names::#{name}Name"
-    nested_hierarchy_runner(_hierarchy, clazz, _name)
+  def names_forest
+    forest("names")
+  end
+  def matters_forest
+    forest("matters")
   end
   private
-  def nested_hierarchy_runner(_hierarchy, _clazz, _name)
-    _hierarchy.map do |node, childs|
-      content_tag(:ul, :class => "nested_hierarchies") do
-        name = _clazz.where(name: node.name).first
-        url = get_url(node.name, name)
-        path = link_to(name.name, url)
+  def forest(context)
+    names = []
+    Inheritance.matters.each do |tree|
+      name = tree.name.singularize.camelize
+      klass = eval "Names::#{name}"
+      names << tree(Inheritance.send(tree.name), klass, context)
+    end
+    names
+  end
+  def tree(tree, klass, context)
+    tree.map do |node, childs|
+      content_tag(:ul) do
+        name = klass.where(name: node.name).first
+        url = url(node, name, context)
+        path = link_to(name.name.humanize, url)
         content_tag(:li) do
-          path + nested_hierarchy_runner(childs, _clazz, _name)
+          path + tree(childs, klass, context)
         end
       end
     end.join.html_safe
   end
-  def get_url(node_name, name)
-    if %w(things entities).include?(node_name)
-      url = names_path(name, "index")
-    else
-      url = names_path(name, "show")
+  def url(node, name, context)
+    case context
+    when "names"
+      names_url(node, name)
+    when "matters"
+      matters_url(name)
     end
-    url
+  end
+  def names_url(node, name)
+    if node.is_root?
+      polymorphic_path(name.class)
+    else
+      polymorphic_path(name)
+    end
+  end
+  def matters_url(name)
+    polymorphic_path(name.matter)
   end
 end
+

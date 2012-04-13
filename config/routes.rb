@@ -15,17 +15,17 @@ Dubsar::Application.routes.draw do
   # names
   namespace :names do
     root to: "names#home"
-    resources :entity_names,  :path => "entities", :as => "entities"
-    resources :thing_names,   :path => "things", :as => "things"
-    resources :property_names, :path => "properites", :as => "properties"
-    resources :property_links, :path => "links", :as => "links"
+    resources :entities
+    resources :things
+    resources :properties
+    resources :links
   end
   
   # matters
   namespace :matters do
     root to: "matters#home"
   end
-  Router.apply(self)
+  Router.matters(self)
   
   # system
   resources :users

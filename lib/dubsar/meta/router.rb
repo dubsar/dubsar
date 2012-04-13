@@ -1,12 +1,15 @@
 class Router
   class << self
-    def apply(router)
+    def matters(router)
       @@router = router
       matters = Inheritance.matters
       matters.each do |matter|
         @@namespace = matter.name.to_sym
         each matter
       end
+    end
+    def reload
+       Dubsar::Application.reload_routes!
     end
     private
     def each(matter)

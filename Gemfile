@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'unicorn'
 
+gem 'jquery-rails'
 gem 'simple_form'
 gem 'lazy_methods'
 gem 'haml-rails'
@@ -14,7 +15,6 @@ gem 'sorcery'
 gem 'sunspot_rails'
 gem 'ancestry'
 gem 'cancan'
-gem 'inherited_resources'
 
 group :development do
 	gem 'ruby-debug19', :require => 'ruby-debug'
@@ -32,6 +32,3 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
-# delenda

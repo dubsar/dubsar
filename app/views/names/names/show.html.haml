@@ -8,4 +8,5 @@
       %td
         %strong= column.name
 
-= link_to "New", names_path(@name, "new")
+= link_to "New", polymorphic_path(@name, action: :new)
+

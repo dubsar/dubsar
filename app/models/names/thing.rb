@@ -1,4 +1,4 @@
 module Names
-  class Link < Name
+  class Thing < Name
   end
 end

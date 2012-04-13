@@ -1,7 +1,7 @@
 module Matters
   module Things
     class Email < Thing
-      has_many :emailables, :foreign_key => 'thing_id'
+      has_many :emailables, class_name: "Matters::Properties::Emailable", foreign_key: 'thing_id'
       def to_s
         email
       end
