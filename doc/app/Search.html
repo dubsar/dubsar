@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Search - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/search.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-cloud">::cloud</a>
+    
+    <li><a href="#method-c-count_items_per_relation">::count_items_per_relation</a>
+    
+    <li><a href="#method-c-find">::find</a>
+    
+    <li><a href="#method-c-items_per_relation">::items_per_relation</a>
+    
+    <li><a href="#method-c-query">::query</a>
+    
+    <li><a href="#method-c-relations_per_query">::relations_per_query</a>
+    
+    <li><a href="#method-c-to_tsquery">::to_tsquery</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Matters.html">Matters</a>
+  
+    <li><a href="./Matters/Entities.html">Matters::Entities</a>
+  
+    <li><a href="./Matters/Entities/Entity.html">Matters::Entities::Entity</a>
+  
+    <li><a href="./Matters/Entities/Institution.html">Matters::Entities::Institution</a>
+  
+    <li><a href="./Matters/Entities/Person.html">Matters::Entities::Person</a>
+  
+    <li><a href="./Matters/MattersApplicationController.html">Matters::MattersApplicationController</a>
+  
+    <li><a href="./Matters/MattersController.html">Matters::MattersController</a>
+  
+    <li><a href="./Matters/Properties.html">Matters::Properties</a>
+  
+    <li><a href="./Matters/Properties/Emailable.html">Matters::Properties::Emailable</a>
+  
+    <li><a href="./Matters/Properties/Property.html">Matters::Properties::Property</a>
+  
+    <li><a href="./Matters/Things.html">Matters::Things</a>
+  
+    <li><a href="./Matters/Things/Account.html">Matters::Things::Account</a>
+  
+    <li><a href="./Matters/Things/Email.html">Matters::Things::Email</a>
+  
+    <li><a href="./Matters/Things/Medium.html">Matters::Things::Medium</a>
+  
+    <li><a href="./Matters/Things/Thing.html">Matters::Things::Thing</a>
+  
+    <li><a href="./Matters/Things/Video.html">Matters::Things::Video</a>
+  
+    <li><a href="./Matters/Things/YoutubeAccount.html">Matters::Things::YoutubeAccount</a>
+  
+    <li><a href="./Matters/Things/YoutubeVideo.html">Matters::Things::YoutubeVideo</a>
+  
+    <li><a href="./Names.html">Names</a>
+  
+    <li><a href="./Names/EntitiesController.html">Names::EntitiesController</a>
+  
+    <li><a href="./Names/Entity.html">Names::Entity</a>
+  
+    <li><a href="./Names/Link.html">Names::Link</a>
+  
+    <li><a href="./Names/Name.html">Names::Name</a>
+  
+    <li><a href="./Names/NamesApplicationController.html">Names::NamesApplicationController</a>
+  
+    <li><a href="./Names/NamesController.html">Names::NamesController</a>
+  
+    <li><a href="./Names/Property.html">Names::Property</a>
+  
+    <li><a href="./Names/PropertyLinksController.html">Names::PropertyLinksController</a>
+  
+    <li><a href="./Names/PropertyNamesController.html">Names::PropertyNamesController</a>
+  
+    <li><a href="./Names/Thing.html">Names::Thing</a>
+  
+    <li><a href="./Names/ThingsController.html">Names::ThingsController</a>
+  
+    <li><a href="./Feed.html">Feed</a>
+  
+    <li><a href="./Feed/Builder.html">Feed::Builder</a>
+  
+    <li><a href="./Feed/Channel.html">Feed::Channel</a>
+  
+    <li><a href="./Feed/Entry.html">Feed::Entry</a>
+  
+    <li><a href="./DB.html">DB</a>
+  
+    <li><a href="./DB/Field.html">DB::Field</a>
+  
+    <li><a href="./FullTextSearch.html">FullTextSearch</a>
+  
+    <li><a href="./FullTextSearch/Item.html">FullTextSearch::Item</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./HomeController/Item.html">HomeController::Item</a>
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Bala.html">Bala</a>
+  
+    <li><a href="./Capability.html">Capability</a>
+  
+    <li><a href="./Inheritance.html">Inheritance</a>
+  
+    <li><a href="./InheritanceHelper.html">InheritanceHelper</a>
+  
+    <li><a href="./Migrator.html">Migrator</a>
+  
+    <li><a href="./PostsHelper.html">PostsHelper</a>
+  
+    <li><a href="./Resource.html">Resource</a>
+  
+    <li><a href="./ResourceController.html">ResourceController</a>
+  
+    <li><a href="./Role.html">Role</a>
+  
+    <li><a href="./Router.html">Router</a>
+  
+    <li><a href="./Search.html">Search</a>
+  
+    <li><a href="./SearchSet.html">SearchSet</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./System.html">System</a>
+  
+    <li><a href="./User.html">User</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Search</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-cloud" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cloud</span><span
+            class="method-args">(_limit=40)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cloud-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cloud</span>(<span class="ruby-identifier">_limit</span>=<span class="ruby-value">40</span>)
+  <span class="ruby-identifier">cloud</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">exec_query</span> <span class="ruby-node">&quot;select * from tags limit(#{_limit})&quot;</span>
+  <span class="ruby-comment">#cloud.to_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cloud-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cloud-method -->
+
+    
+      <div id="method-c-count_items_per_relation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">count_items_per_relation</span><span
+            class="method-args">(_query)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="count_items_per_relation-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">count_items_per_relation</span>(<span class="ruby-identifier">_query</span>)
+  <span class="ruby-identifier">count</span> = {}
+  <span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;item_relation, count(item_relation) as relation_count&quot;</span>).
+    <span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;((content) @@ (to_tsquery(?)))&quot;</span>, <span class="ruby-identifier">_query</span>).
+    <span class="ruby-identifier">group</span>(<span class="ruby-value">:item_relation</span>).
+    <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">count</span>[<span class="ruby-identifier">item</span>.<span class="ruby-identifier">item_relation</span>] = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">relation_count</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- count_items_per_relation-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- count_items_per_relation-method -->
+
+    
+      <div id="method-c-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(q)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">q</span>)
+  <span class="ruby-constant">Sunspot</span>.<span class="ruby-identifier">search</span>(<span class="ruby-constant">Bala</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">keywords</span> <span class="ruby-identifier">q</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find-method -->
+
+    
+      <div id="method-c-items_per_relation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">items_per_relation</span><span
+            class="method-args">(_query, _relation)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="items_per_relation-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">items_per_relation</span>(<span class="ruby-identifier">_query</span>, <span class="ruby-identifier">_relation</span>)
+  <span class="ruby-identifier">ids</span> = []
+  <span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;item_id&quot;</span>).
+    <span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;((content) @@ (to_tsquery(?))) AND (item_relation = ?)&quot;</span>, <span class="ruby-identifier">_query</span>, <span class="ruby-identifier">_relation</span>).
+    <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">record</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">ids</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">item_id</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">ids</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items_per_relation-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items_per_relation-method -->
+
+    
+      <div id="method-c-query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">query</span><span
+            class="method-args">(q)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="query-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">query</span>(<span class="ruby-identifier">q</span>)
+  <span class="ruby-identifier">q</span> = <span class="ruby-identifier">to_tsquery</span>(<span class="ruby-identifier">q</span>)
+  <span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;content @@ to_tsquery(?)&quot;</span>, <span class="ruby-identifier">q</span>) 
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- query-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- query-method -->
+
+    
+      <div id="method-c-relations_per_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">relations_per_query</span><span
+            class="method-args">(_query)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="relations_per_query-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">relations_per_query</span>(<span class="ruby-identifier">_query</span>)
+  <span class="ruby-identifier">relations</span> = []
+  <span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;distinct item_relation&quot;</span>).
+    <span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;((content) @@ (to_tsquery(?)))&quot;</span>, <span class="ruby-identifier">_query</span>).
+    <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">record</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">relations</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">item_relation</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">relations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- relations_per_query-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- relations_per_query-method -->
+
+    
+      <div id="method-c-to_tsquery" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_tsquery</span><span
+            class="method-args">(_q)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_tsquery-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_tsquery</span>(<span class="ruby-identifier">_q</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">_q</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">String</span>
+  <span class="ruby-comment"># &quot;a b&quot; -&gt; &quot;a &amp; b</span>
+  <span class="ruby-identifier">_q</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">gsub</span> <span class="ruby-regexp">%r\s+/</span>, <span class="ruby-string">&quot; &amp; &quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_tsquery-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_tsquery-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

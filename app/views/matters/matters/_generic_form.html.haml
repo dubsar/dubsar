@@ -3,3 +3,6 @@
     = f.input field.to_sym unless %w(id created_at updated_at).include?(field)
   = f.submit
 
+
+%div
+  = link_to 'all', polymorphic_path(@matter.class)
