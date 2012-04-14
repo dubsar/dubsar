@@ -1,6 +1,18 @@
-%dl
-  - @matter.columns.each do |attr|
-    %dt= attr.name.humanize
-    - begin
-      %dd= eval "#{@matter}.#{attr.name}"
-    - rescue
+- attributes = @matter.class.attribute_names - %w(id created_at updated_at)
+%table
+  - attributes.each do |attr|
+    %tr
+      %td
+        = attr.humanize
+        &nbsp;:&nbsp;
+        = @matter.public_send(attr).to_s
+
+%div
+  = link_to 'all', polymorphic_path(@matter.class)
+  |
+  = link_to 'new', polymorphic_path(@matter, action: :new)
+  |
+  = link_to 'edit', polymorphic_path(@matter, action: :edit)
+  |
+  = link_to 'destroy', polymorphic_path(@matter), method: :delete, confirm: "Are you sure?"
+

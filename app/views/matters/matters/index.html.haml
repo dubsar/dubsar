@@ -1,12 +1,12 @@
-- attributes = @matter.first.class.attribute_names - %w(id created_at updated_at)
+- attributes = @matters.first.class.attribute_names - %w(id created_at updated_at)
 %table
   %thead
     %tr
       - attributes.each do |attr|
         %th= attr.humanize
-    %th &nbsp;
+      %th &nbsp;
   %tbody
-    - @matter.each do |resource|
+    - @matters.each do |resource|
       %tr[resource]
         - attributes.each do |attr|
           %td= resource.public_send(attr).to_s.truncate(20)
@@ -16,3 +16,5 @@
           = link_to 'edit', polymorphic_path(resource, action: :edit)
           |
           = link_to 'destroy', polymorphic_path(resource), method: :delete, confirm: "Are you sure?"
+
+%div= link_to 'new', polymorphic_path(@matters.first, action: :new)

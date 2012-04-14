@@ -14,16 +14,34 @@ class ResourceController
     namespace.const_get(name).class_eval do
       layout 'home'
       def index
-        respond_with(@matter = model_klass.all)
+        @matters = model_klass.all
+        if @matters.length > 0
+          respond_with(@matters)
+        else
+          redirect_to polymorphic_path(model_klass.new, action: :new)
+        end
+      end
+      def edit
+        respond_with(@matter = model_klass.find(params[:id]))
       end
       def show
-        respond_with(@matter = model_klass.where(id: params[:id]))
+        respond_with(@matter = model_klass.find(params[:id]))
       end
       def new
         respond_with(@matter = model_klass.new)
       end
       def create
         @matter = model_klass.create(find_form)
+        respond_with(@matter)
+      end
+      def update
+        @matter = model_klass.find(params[:id])
+        @matter.update_attributes(find_form)
+        respond_with(@matter)
+      end
+      def destroy
+        @matter = model_klass.find(params[:id])
+        @matter.destroy
         respond_with(@matter)
       end
       private
