@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   end
   def view
     item = Item.new(params);
-    if item.clazz < Video
+    if item.clazz < Matters::Things::Video
       @video = item.clazz.find item.id
       render :play
     end
@@ -40,8 +40,10 @@ class HomeController < ApplicationController
     def class_for(_table_name)
       clazz = default_clazz
       begin
-        clazz = _table_name.singularize.camelize.constantize
-      rescue
+        #clazz = _table_name.singularize.camelize.constantize
+        clazz = _table_name.constantize
+      rescue Exception => e
+        logger.debug e
       end
     end
     def default_clazz

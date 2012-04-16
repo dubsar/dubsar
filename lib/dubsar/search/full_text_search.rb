@@ -22,7 +22,7 @@ class FullTextSearch
     attr_accessor :id, :clazz, :description
     def initialize(_result)
       @id = _result.id
-      @clazz = _result.class.table_name
+      @clazz = _result.class.name
       @description = _result.describe
     end
     # to keep pg_search cpmpatibilty

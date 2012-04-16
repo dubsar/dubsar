@@ -13,6 +13,7 @@ gem 'feedzirra'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'sorcery'
 gem 'sunspot_rails'
+gem 'rsolr-ext'
 gem 'ancestry'
 gem 'cancan'
 

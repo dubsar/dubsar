@@ -10,6 +10,7 @@
     - if logged_in?
       %li.title{:class => selected_tab("names")}
         %a(href="/names") names
+        = names_forest.first
     %li.title.login{:class => selected_tab("login")}
       - if logged_in?
         %a(href="/logout") logout
