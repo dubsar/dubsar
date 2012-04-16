@@ -1,0 +1,15 @@
+common: &common
+  solr:
+    hostname: solr-host
+    port: 8080
+    path: /solr
+    log_level: WARNING
+production:
+  <<: *common
+
+development:
+  <<: *common
+
+test:
+  <<: *common
+
