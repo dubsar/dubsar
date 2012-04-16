@@ -66,6 +66,6 @@ class ResourceController
     ("Matters::" << @context).constantize
   end
   def name
-    @matter.name.camelize << "Controller"
+    @matter.name.pluralize.camelize << "Controller"
   end
 end

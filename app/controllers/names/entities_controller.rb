@@ -10,12 +10,7 @@ module Names
       respond_with(@name = Names::Entity.new)
     end
     def create
-      name = Names::Entity.new
-      Name.transaction do
-        name = Names::Entity.create(params["names_entity"])
-        parent = Names::Entity.where(id: name.parent).first
-        DB.create_entity(name.name, parent.name, name.fields)
-      end
+      @name = create_name(Names::Enity)
       respond_with(@name = name)
     end
   end

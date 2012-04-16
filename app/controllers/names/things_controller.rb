@@ -11,14 +11,8 @@ module Names
       respond_with(@name = Names::Thing.new)
     end
     def create
-      name = Names::Thing.new
-      Name.transaction do
-        name = Names::Thing.create(params["names_thing"])
-        puts name.fields.inspect
-        parent = Names::Thing.where(id: name.parent).first
-        DB.create_thing(name.name, parent.name, name.fields)
-      end
-      respond_with(@name = name)
+      @name = create_name(Names::Thing)
+      respond_with(@name)
     end
   end
 end

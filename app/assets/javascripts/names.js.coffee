@@ -14,6 +14,7 @@ jQuery ->
     name = $("#field_form_name").val()
     type = $("#field_form_type").val()
     f = new Field(name, type)
+    alert( "name : " + name + ", type : " + type)
     fields.add(f)
   $("#new_name_form").submit ->
     $("#new_name_fields").val(fields.json)

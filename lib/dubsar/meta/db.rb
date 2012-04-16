@@ -9,20 +9,20 @@ class DB
     TypesCollection = Types.keys.sort
 
     attr_reader :name, :type
-    def initialize(_name, _type)
-      check_name(_name)
-      check_type(_type)
-      @name, @type = _name, Types[_type]
+    def initialize(name, type)
+      check_name(name)
+      check_type(type)
+      @name, @type = name, Types[type]
     end
     private
-    def check_name(_name)
-      ok = _name.length < 63 # max pg object's label name lenght see pg_type::name
-      ok = ok && !DB.exists?(_name)
-      raise "Invalid Table Name #{_name}" unless ok
+    def check_name(name)
+      ok = name.length < 63 # max pg object's label name lenght see pg_type::name
+      ok = ok && !DB.exists?(name)
+      raise "Invalid Table Name #{name}" unless ok
     end
-    def check_type(_type)
-      ok = Types.has_key?(_type)
-      raise "Invalid Type Name #{_type}" unless ok
+    def check_type(type)
+      ok = Types.has_key?(type)
+      raise "Invalid Type Name #{type}" unless ok
     end
   end
   class << self
@@ -52,11 +52,15 @@ class DB
       sql << ") INHERITS(#{parent})"
       execute sql
     end
+    def drop_table(name)
+      sql = "DROP TABLE dubsar.#{name} CASCADE"
+      execute sql
+    end
     def connection
       ActiveRecord::Base.connection.instance_variable_get(:@connection)
     end
-    def execute(_sql, _values = [])
-      connection.exec _sql, _values
+    def execute(sql, values = [])
+      connection.exec sql, values
     end
     def reload_routes
       Router.reload

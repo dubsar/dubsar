@@ -1,6 +1,6 @@
 = simple_form_for(@matter) do |f|
   - @matter.class.column_names.each do |field|
-    = f.input field.to_sym unless %w(id created_at updated_at).include?(field)
+    = f.input field.to_sym, as: :string unless %w(id created_at updated_at).include?(field)
   = f.submit
 
 

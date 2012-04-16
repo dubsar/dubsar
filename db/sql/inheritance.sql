@@ -18,7 +18,7 @@ CREATE OR REPLACE VIEW dubsar.inheritance AS
 	FROM pg_inherits
 ;
 
-CREATE OR REPLACE FUNCTION dubsar.get_inh_tree(parent oid) RETURNS SETOF inh_tree AS
+CREATE OR REPLACE FUNCTION dubsar.get_inh_tree(parent oid) RETURNS SETOF dubsar.inh_tree AS
 $$
 	SELECT CAST((node, parent) AS inh_tree)
 	FROM		 inheritance
