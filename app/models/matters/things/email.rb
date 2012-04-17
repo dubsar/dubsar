@@ -6,7 +6,6 @@ module Matters
         email
       end
       def self.create(attributes = nil, options = {}, &block)
-        binding.pry
         create!(attributes, options, &block)
       end
     end
