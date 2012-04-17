@@ -13,19 +13,21 @@ module InheritanceHelper
       klass = eval "Names::#{name}"
       names << tree(Inheritance.send(tree.name), klass, context)
     end
-    names
+    html = "<ul>" << names.join << "</ul>"
+    html.html_safe
   end
-  def tree(tree, klass, context)
-    tree.map do |node, childs|
-      content_tag(:ul) do
-        name = klass.where(name: node.name).first
-        url = url(node, name, context)
-        path = link_to(name.name.humanize, url)
-        content_tag(:li) do
-          path + tree(childs, klass, context)
-        end
-      end
-    end.join.html_safe
+  def tree(tree, klass, context, html="")
+    tree.map do |node, children|
+      name = klass.where(name: node.name).first
+      url = url(node, name, context)
+      path = link_to(name.name.humanize, url)
+      html << "<li>" << path
+      html << "<ul>" unless children.empty?
+      tree(children, klass, context, html)
+      html << "</ul>" unless children.empty?
+      html << "</li>"
+    end
+    html
   end
   def url(node, name, context)
     case context
