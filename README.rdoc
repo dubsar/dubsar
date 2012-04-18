@@ -1,4 +1,6 @@
 = Dubsar
+== Cumulative Dynamic Rails Application Template
+
 This is an early proof of concept.
 
 Dubsar is a postgreSQL Rails application.
