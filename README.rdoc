@@ -1,5 +1,5 @@
 = Dubsar
-== Cumulative Dynamic Rails Application Template
+Cumulative Dynamic Rails Application Template
 
 This is an early proof of concept.
 
