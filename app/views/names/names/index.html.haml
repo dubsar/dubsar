@@ -1,7 +1,7 @@
 %table
   - @names.each do |name|
     %tr
-      %td= link_to name.name, names_path(name, "show")
+      %td= link_to name.name, polymorphic_path(name)
 
 %table
   %tr

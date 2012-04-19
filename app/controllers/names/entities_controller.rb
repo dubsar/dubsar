@@ -10,8 +10,8 @@ module Names
       respond_with(@name = Names::Entity.new)
     end
     def create
-      @name = create_name(Names::Enity)
-      respond_with(@name = name)
+      @name = create_name(Names::Entity)
+      respond_with(@name)
     end
   end
 end
