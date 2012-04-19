@@ -1,0 +1,56 @@
+/* inspired by the suckerfish menu as improved by 
+ * http://netweblogic.com/css/suckerfish-drop-down-menu-improved/
+*/
+@mixin menu($itemWidth: 10em) {
+  $itemSelectedColor: black;
+  $itemSelectedBgColor: #f2f2f2;
+  $itemHoverBgColor: #4c4c4c;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  a {
+    padding: 0.4em 0em 0.4em 0em;
+    display: block;
+    width: $itemWidth;
+    text-decoration: none;
+  }
+  li {
+    float: left;
+    width: $itemWidth;
+    &.selected a {
+      color: $itemSelectedColor;
+      background-color: $itemSelectedBgColor;
+      &:hover {
+        color: inherit;
+      }
+    }
+    &.title > a {
+      text-align: center;
+    }
+    &.login {
+      float: right;
+    }
+    &:hover {
+      position: static;
+      > a {
+        background-color: $itemHoverBgColor;
+      }
+      > ul {
+        left: auto;
+      }
+    }
+    ul {
+      position: absolute;
+      width: $itemWidth;
+      left: -999em;
+      li a {
+        text-indent: 0.5em;
+      }
+      ul {
+        margin: -2.2em 0 0 $itemWidth;
+      }
+    }
+  }
+}
